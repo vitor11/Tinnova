@@ -1,5 +1,5 @@
-# ad-2019
-Amigo secreto
+# Exercicio 5
+Veiculo
 
  - Backend - 
  * Para executas o backend será preciso realizar duas etapas
@@ -8,17 +8,8 @@ Amigo secreto
 	- Acessar a pasta Backend
 	- Acessar a pasta api dentro da pasta Backend
 	- executar dentro desta pasta através do CMD o comando: npm start
-
-2 - Executar o laravel
-	- Acessar a pasta backend
-	- Acessar a pasta laravel
-	- executar o comando: php artisan serve
-
-
 ___________________________________________________________________________
 ///////////////////////////////////////////////////////////////////////////
-
-
 - Frontend -
 
 1 - Executar o angular
