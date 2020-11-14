@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+        <title>Veiculos</title>
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+
+
+    </head>
+    <body>
+        <section>
+            <div class="all p-5">
+                <div class="row">
+                    <div class="col-12 w-25 p-3 border text-center"><h1><b>Veiculos</b></h1></div>
+                </div>
+              </div>
+              <div class="addFriend">
+                <form #myform="ngForm" (ngSubmit)="save(myform)" autocomplete="off">
+                        <div class="row m-3">
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-2">
+                                        <div class="form-group">
+                                            <label for="pTitle">Veiculo</label>
+                                            <input ngModel type="text" name="pVeiculo" class="form-control required" placeholder="Veiculo" value="">
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="form-group">
+                                            <label for="sel1">Marca:</label>
+                                            <select ngModel class="form-control" name="pMarca">
+                                                <option value="">Escolha uma marca</option>
+                                                <option value="Chevrolet"> Chevrolet </option>
+                                                <option value="Volkswagen"> Volkswagen </option>
+                                                <option value="Fiat"> Fiat </option>
+                                                <option value="Renault"> Renault </option>
+                                                <option value="Ford"> Ford </option>
+                                                <option value="Toyota"> Toyota </option>
+                                                <option value="Hyundai"> Hyundai </option>
+                                                <option value="Jeep"> Jeep </option>
+                                                <option value="Honda"> Honda </option>
+                                                <option value="Nissan"> Nissan </option>
+                                                <option value="Citroën"> Citroën </option>
+                                                <option value="Mitsubishi"> Mitsubishi </option>
+                                                <option value="Peugeot"> Peugeot </option>
+                                                <option value="Chery"> Chery </option>
+                                                <option value="BMW"> BMW </option>
+                                                <option value="Mercedes"> Mercedes-Benz </option>
+                                                <option value="Kia"> Kia </option>
+                                                <option value="Audi"> Audi </option>
+                                                <option value="Volvo"> Volvo </option>
+                                                <option value="Land"> Land Rover </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="form-group">
+                                            <label for="pTitle">Ano</label>
+                                            <input ngModel type="number" name="pAno" class="form-control required" placeholder="Ano" value="">
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="form-group">
+                                            <label for="pTitle">Descricao</label>
+                                            <textarea ngModel ngDefaultControl name="pDescricao" class="form-control" aria-label="With textarea" placeholder="Descrição" style="margin-top: 0px; margin-bottom: 0px; height: 38px;"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-1">
+                                        <div class="form-group">
+                                            <label for="pTitle">Vendido</label>
+                                            <input ngModel type="checkbox" class="form-control form-check-input" name="pVendido">
+                                        </div>
+                                    </div>
+                                    
+                                    <button type="submit" class="btn btn-success font-16">Salvar</button>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="pesquisas">
+                    <div class="row m-3">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-4">
+                                    <button (click)="qtdVeiculosVendidos()"  type="button" class="btn btn-success btn-cadastro-cliente">Quantidade de veiculos vendidos</button>
+                                </div>
+                                <div class="col-4">
+                                    <button (click)="qtdVeiculosPorDecadaFabricado()" type="button" class="btn btn-success btn-cadastro-cliente">Quantidade de veiculos por década</button>
+                                </div>
+                                <div class="col-4">
+                                    <button (click)="qtdVeiculosPorFabricante()" type="button" class="btn btn-success btn-cadastro-cliente">Quantidade de veiculos por fabricante</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="listFriends">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Veiculo</th>
+                                <th>Marca</th>
+                                <th>Ano</th>
+                                <th>Descricao</th>
+                                <th>Vendido</th>
+                                <th>Criação</th>
+                                <th>Alteração</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                    <tr *ngFor="let role of roles">
+                                            <td>
+                                                <input #pVeiculoUpdt type="text" name="pVeiculoUpdt" class="form-control required" value="{{role.veiculo}}">
+                                            </td>
+                                            <td>
+                                                    <select #pMarcaUpdt class="form-control" name="pMarcaUpdt" value="{{role.marca}}">
+                                                        <option value="">Marca</option>
+                                                        <option value="Chevrolet"> Chevrolet </option>
+                                                        <option value="Volkswagen"> Volkswagen </option>
+                                                        <option value="Fiat"> Fiat </option>
+                                                        <option value="Renault"> Renault </option>
+                                                        <option value="Ford"> Ford </option>
+                                                        <option value="Toyota"> Toyota </option>
+                                                        <option value="Hyundai"> Hyundai </option>
+                                                        <option value="Jeep"> Jeep </option>
+                                                        <option value="Honda"> Honda </option>
+                                                        <option value="Nissan"> Nissan </option>
+                                                        <option value="Citroën"> Citroën </option>
+                                                        <option value="Mitsubishi"> Mitsubishi </option>
+                                                        <option value="Peugeot"> Peugeot </option>
+                                                        <option value="Chery"> Chery </option>
+                                                        <option value="BMW"> BMW </option>
+                                                        <option value="Mercedes"> Mercedes-Benz </option>
+                                                        <option value="Kia"> Kia </option>
+                                                        <option value="Audi"> Audi </option>
+                                                        <option value="Volvo"> Volvo </option>
+                                                        <option value="Land"> Land Rover </option>
+                                                    </select>
+                                            </td>
+                                            
+                                            <td>
+                                                    <input #pAnoUpdt type="text" name="pAnoUpdt" class="form-control required" value="{{role.ano}}">
+                                            </td>
+                                            <td>
+                                                    <input #pDescricaoUpdt  name="pDescricaoUpdt" type="text" class="form-control" value="{{role.descricao}}">
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="form-check">
+                                                        <label class="form-check-label">
+                                                          <input #p{{role._id}} *ngIf="role.vendido" type="radio" class="form-check-input" name="p{{role._id}}" checked>
+                                                          <input #p{{role._id}} *ngIf="!role.vendido" type="radio" class="form-check-input" name="p{{role._id}}">
+                                                        </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                        <input #pCriacaoUpdt name="pCriacaoUpdt" type="text" class="form-control" value="{{role.created | date: 'dd/MM/yyyy'}}" disabled>
+                                            </td>
+                                            <td>
+                                                    <input #pAlteracaoUpdt name="pAlteracaoUpdt" type="text" class="form-control" value="{{role.updated | date: 'dd/MM/yyyy'}}" disabled>
+                                            </td>
+                                            <td>
+                                                  <div class="row">
+                                                      <div class="col-4">
+                                                        <button (click)="update(role._id, pVeiculoUpdt.value, pMarcaUpdt.value, pAnoUpdt.value, pDescricaoUpdt.value, role.vendido)" type="submit"  [attr.data-id] = role._id class="btn btn-primary font-16">
+                                                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                                                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                                            </svg>
+                                                        </button>
+
+
+                                                      </div>
+                                                      <div class="col-4">
+                                                        <button (click)="delete(role._id)" type="submit"  [attr.data-id] = role._id class="btn btn-danger font-16">
+                                                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                                                <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                                            </svg>
+                                                        </button>
+                                                      </div>
+                                                    </div>
+                                            </td>
+                                    </tr>
+                        </tbody>
+                    </table>
+                </div>
+        </section>
+    </body>
+</html>
